@@ -10,7 +10,7 @@ Fiftyfourfooty::Application.configure do
   # Configure static asset server for tests with Cache-Control for performance
   config.serve_static_assets = true
   config.static_cache_control = "public, max-age=3600"
-
+  
   # Log error messages when you accidentally call methods on nil
   config.whiny_nils = true
 
@@ -34,4 +34,10 @@ Fiftyfourfooty::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+  
+  #Speed up tests by lowering BCrypt's cost function.
+  require 'bcrypt'
+  silence_warnings do
+    BCrypt::Engine::DEFAULT_COST = BCrypt::Engine::MIN_COST
+  end
 end

@@ -2,42 +2,41 @@ require 'spec_helper'
 
 describe "Static pages" do
 
+  subject { page }
+
   describe "Home page" do
+    before { visit root_path }
 
-    it "should have the content 'heroes'" do
-      visit '/static_pages/home'
-      page.should have_content('54footy')
-    end
+    it { should have_selector('h1',    text: '54footy') }
+    it { should have_selector('title', text: full_title('')) }
+    it { should_not have_selector 'title', text: '| Home' }
   end
-  
+
   describe "Help page" do
+    before { visit help_path }
 
-    it "should have the content 'Physios'" do
-      visit '/static_pages/help'
-      page.should have_content('Physios')
-    end
+    it { should have_selector('h1',    text: 'Physios') }
+    it { should have_selector('title', text: full_title('help')) }
   end
-  
-  describe "contact page" do
 
-    it "should have the content 'contact'" do
-        visit '/static_pages/contact'
-        page.should have_content('contact')
-    end
-  end
-  
   describe "About page" do
+    before { visit about_path }
 
-    it "should have the content 'About'" do
-      visit '/static_pages/about'
-      page.should have_content('about')
-    end
+    it { should have_selector('h1',    text: 'About me') }
+    it { should have_selector('title', text: full_title('about')) }
   end
-  describe "blog page" do
+  
+  describe "Blog" do
+     before { visit blog_path }
 
-    it "should have the content 'blog'" do
-      visit '/static_pages/blog'
-      page.should have_content('blog')
-    end
-  end    
+     it { should have_selector('h1',    text: 'go here') }
+     it { should have_selector('title', text: full_title('blog')) }
+   end
+
+  describe "Contact page" do
+    before { visit contact_path }
+
+    it { should have_selector('h1',    text: 'cell') }
+    it { should have_selector('title', text: full_title('contact')) }
+  end
 end

@@ -1,0 +1,14 @@
+<% provide(:title, 'All Users') %>
+<h1>All Users</h1>
+
+<%= will_paginate %>
+
+<ul class="users">
+  <%= render @users %> 
+</ul>
+
+<%= will_paginate %>
+  
+  <!-- <li> -->
+	 <!-- Old code commented out and replaced with refactored partial. Displays all the users and do Iterates over all th users to show their picture and name in a list this should be the heroes search page instead of users it's hears with one typeahead + ajax search bar -->
+

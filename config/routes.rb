@@ -12,7 +12,7 @@ Fiftyfourfooty::Application.routes.draw do
    match '/help', to: 'static_pages#help'
    match '/contact', to: 'static_pages#contact'
    match '/about', to: 'static_pages#about'
-   match '/blog', to: 'static_pages#blog'
+   match '/blog' => redirect("http://blog.54footy.com"), :as => :blog
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

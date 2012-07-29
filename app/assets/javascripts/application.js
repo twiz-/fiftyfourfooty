@@ -14,4 +14,3 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
-//= require FitVids.js/jquery.fitvids.js

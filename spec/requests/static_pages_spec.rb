@@ -26,13 +26,6 @@ describe "Static pages" do
     it { should have_selector('title', text: full_title('about')) }
   end
   
-  describe "Blog" do
-     before { visit blog_path }
-
-     it { should have_selector('h1',    text: 'go here') }
-     it { should have_selector('title', text: full_title('blog')) }
-   end
-
   describe "Contact page" do
     before { visit contact_path }
 

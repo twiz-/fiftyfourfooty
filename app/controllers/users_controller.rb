@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   before_filter :signed_in_user, only: [:index, :edit, :update, :destroy] #this makes is a filter that authenticates only a signed in user can edit, see the user index or update their own profile. :)
   before_filter :correct_user,   only: [:edit, :update] # this adds another filter that the right signed in user edits their own data and applies it to 
   before_filter :admin_user,     only: :destroy
-   
   
   def new
     @user = User.new #this creates a new instance of a user form the user class, useful to show a users info in a view
@@ -21,7 +20,15 @@ class UsersController < ApplicationController
   end
   
   def show
-    @user = User.find(params[:id]) #This retrieves a user from the db by it's id and shows the user info for profile information 
+    @user = User.find(params[:id]) #This retrieves a user from the db by it's id and shows the user info for profile information     
+
+    if @user.heros.count > 0
+      query = @user.heros.first.name
+    else
+      query = params[:q]
+    end
+
+    @hero_news = Players.find({ q: query, section: 'football' })
   end
   
   def edit #@user = User.find(params[:id]) is not needed because of the correct_user filter same with update(1st line taken away)

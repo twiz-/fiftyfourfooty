@@ -6,7 +6,20 @@
 			<h1>
 			  <%= gravatar_for @user %><br>
 			  <%= @user.name %> 		
-			</h1>				
+			</h1>
+
+      <h2><%= @user.name %>&rsquo;s heros</h2>
+      <ul>
+        <% @user.heros.each do |hero| %>
+          <li><%= hero.name %></li>
+        <% end %>
+      </ul>
+
+      <ul>
+			<% @hero_news.each do |item| %>
+				<li><%= item["webTitle"] %> <%= link_to "Read more!", item["webUrl"] %></li>
+			<% end %>
+    </ul>
 		</section>
 	</aside>
 </div>

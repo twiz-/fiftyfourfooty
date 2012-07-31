@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(:version => 20120729011951) do
 
   create_table "heros", :force => true do |t|
-    t.string   "content"
+    t.string   "name"
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

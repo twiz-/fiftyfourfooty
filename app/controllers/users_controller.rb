@@ -43,6 +43,8 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
+  # @hero_specific = Players.find_hero(params[:name])
+  
   
   def create
     @user = User.new(params[:user])

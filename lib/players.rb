@@ -14,7 +14,17 @@ class Players
     else
       raise response.response    
     end
-
+  end
+  
+  def self.find_hero(name)
+    response = get("/football/#{name}?format-json&order-by=newest")
+    
+    if response.success?
+      response["results"]
+      # user.players.create(arg)!  ?????
+    else
+      raise response.response
+    end
   end
 
   debug_output $stdout

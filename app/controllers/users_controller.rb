@@ -28,7 +28,7 @@ class UsersController < ApplicationController
       query = params[:q]
     end
 
-    @hero_news = Players.find({ q: query, section: 'football' })
+    @hero_news = Players.find({ q: query, section: 'football' }) #this is a GET request
   end
   
   def edit #@user = User.find(params[:id]) is not needed because of the correct_user filter same with update(1st line taken away)

@@ -7,7 +7,7 @@ class Players
   end
 
   def self.find(query)
-    response = get("/search", query: query, :headers => {"User-Agent" => '54Footy'} )
+    response = get("/search", query: query, :headers => {"User-Agent" => '54footy'} )
 
     if response.success?
       response["response"]["results"]

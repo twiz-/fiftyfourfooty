@@ -19,6 +19,9 @@
 			<% @hero_news.each do |item| %>
 				<li>
 				<%= item["webTitle"] %> <%= link_to "Read more!", item["webUrl"] %>
+				<span class="timestamp">
+				 Posted <%= time_ago_in_words(item["webPublicationDate"])%> ago.
+				</span>
 				</li>
 			<% end %>
     </ul>

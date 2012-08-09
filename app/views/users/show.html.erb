@@ -15,6 +15,14 @@
         <% end %>
       </ul>
 
+      <ul>
+        <%= form_tag(default_hero_user_path, :method=>'post') do %>
+            <%= label_tag "Name" %>
+            <%= text_field_tag "name", @user.default_hero.name %>
+            <%= submit_tag 'Set hero', class: "btn btn-large btn-primary"  %>
+        <% end %>
+      </ul>
+
       <ul class="box_qa">
 			<% @hero_news.each do |item| %>
 				<li>

@@ -22,13 +22,14 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id]) #This retrieves a user from the db by it's id and shows the user info for profile information     
 
-    if @user.heros.count > 0
-      query = @user.heros.first.name
+    if @user.default_hero.nil?
+      name = params[:q]
     else
-      query = params[:q]
+      name = @user.default_hero.name
     end
 
-    @hero_news = Players.find({ q: query, section: 'football' }) #this is a GET request
+    #@hero_news = Players.find({ q: query, section: 'football' }) #this is a GET request
+    @hero_news = Players.find_hero(name)
   end
   
   def edit #@user = User.find(params[:id]) is not needed because of the correct_user filter same with update(1st line taken away)
@@ -56,7 +57,22 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
-  
+
+  # creates or updates the default hero
+  def default_hero
+    @user = User.find(params[:id])
+    hero = @user.default_hero
+    if hero.nil?
+      # we don't have a default hero so we need to add one'
+      hero = Hero.new
+      @user.heros << hero
+    end
+    hero.default = true
+    hero.name = params[:name]
+    hero.save
+    redirect_to @user # shows the user again to see any updates
+  end
+
   private 
   
     def admin_user

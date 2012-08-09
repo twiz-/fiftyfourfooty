@@ -14,11 +14,11 @@
           <li><%= hero.name %></li>
         <% end %>
       </ul>
-
+    
       <ul class="box_qa">
 			<% @hero_news.each do |item| %>
 				<li>
-				<%= item["webTitle"] %> <%= link_to "Read more!", item["webUrl"] %>
+				<%= item["webTitle"] %> <%= link_to "Read more!", item["webUrl"], :class=> "fancybox"%>
 				<span class="timestamp">
 				 Posted <%= time_ago_in_words(item["webPublicationDate"])%> ago.
 				</span>
@@ -29,3 +29,17 @@
 		</section>
 	</aside>
 </div>
+
+<script>
+$(document).ready(function(){
+ $("a.fancybox").fancybox({
+	'transitionIn': 'fade',
+    'transitionOut': 'fade',
+    'width': '640',
+    'height': '480',
+	'type': 'iframe'
+	
+	
+	});
+});
+</script> 

@@ -5,22 +5,17 @@
     <section>
       <h1>
         <%= gravatar_for @user %><br>
-        <%= @user.name %> 		
+        <%= @user.name %>
       </h1>
 
-      <h2><%= @user.name %>&rsquo;s heros</h2>
-      <ul>
-        <% @user.heros.each do |hero| %>
-        <li><%= hero.name %></li>
-        <% end %>
-      </ul>
+      <h2><%= @user.name %>&rsquo;s hero is <%= @user.hero.name %></h2>
 
       <ul>
-        <%= form_tag(default_hero_user_path, :method=>'post') do %>
-          <%= label_tag "Name" %>
-          <%= text_field_tag "name", @user.default_hero.name %>
-          <%= submit_tag 'Set hero', class: "btn btn-large btn-primary"  %>
-        <% end %>
+        <%#= form_tag(default_hero_user_path, :method=>'post') do %>
+          <%#= label_tag "Name" %>
+          <%#= text_field_tag "name", @user.default_hero.name %>
+          <%#= submit_tag 'Set hero', class: "btn btn-large btn-primary"  %>
+        <%# end %>
       </ul>
 
       <ul class="box_qa">

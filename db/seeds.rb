@@ -17,3 +17,10 @@ User.create({
   password_confirmation: 'poop009'
 })
 
+User.create({
+  name: 'jp',
+  email: 'jpsilvashy@gmail.com',
+  password: 'poop009',
+  password_confirmation: 'poop009'
+})
+

@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
+  after_create :set_default_hero
   
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -25,16 +26,17 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }
   validates :password_confirmation, presence: true
 
-  has_many :heros
+  belongs_to :hero
 
   # returns the default hero
   # This assumes that there is only one hero with the default flag set to true
-  def default_hero
-    self.heros.select{|hero| hero.default?}.first
-  end
 
   private
-
+  
+  def set_default_hero
+    self.hero = Hero.where({ default: true }).first
+    self.save
+  end
      
    def create_remember_token
      self.remember_token = SecureRandom.urlsafe_base64

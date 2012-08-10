@@ -1,39 +1,39 @@
 <% provide(:title, @user.name) %>
 
 <div class="row">
-	<aside class="span4">
-		<section>
-			<h1>
-			  <%= gravatar_for @user %><br>
-			  <%= @user.name %> 		
-			</h1>
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= gravatar_for @user %><br>
+        <%= @user.name %> 		
+      </h1>
 
       <h2><%= @user.name %>&rsquo;s heros</h2>
       <ul>
         <% @user.heros.each do |hero| %>
-          <li><%= hero.name %></li>
+        <li><%= hero.name %></li>
         <% end %>
       </ul>
 
       <ul>
         <%= form_tag(default_hero_user_path, :method=>'post') do %>
-            <%= label_tag "Name" %>
-            <%= text_field_tag "name", @user.default_hero.name %>
-            <%= submit_tag 'Set hero', class: "btn btn-large btn-primary"  %>
+          <%= label_tag "Name" %>
+          <%= text_field_tag "name", @user.default_hero.name %>
+          <%= submit_tag 'Set hero', class: "btn btn-large btn-primary"  %>
         <% end %>
       </ul>
 
       <ul class="box_qa">
-			<% @hero_news.each do |item| %>
-				<li>
-				<%= item["webTitle"] %> <%= link_to "Read more!", item["webUrl"] %>
-				<span class="timestamp">
-				 Posted <%= time_ago_in_words(item["webPublicationDate"])%> ago.
-				</span>
-				</li>
-			<% end %>
-    </ul>
-    
-		</section>
-	</aside>
+        <% @hero_news.each do |item| %>
+        <li>
+          <%= item["webTitle"] %> <%= link_to "Read more!", item["webUrl"] %>
+          <span class="timestamp">
+            Posted <%= time_ago_in_words(item["webPublicationDate"])%> ago.
+          </span>
+        </li>
+        <% end %>
+      </ul>
+
+    </section>
+  </aside>
 </div>

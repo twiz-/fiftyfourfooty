@@ -5,3 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Hero.create({ name: 'Theo Walcott' })
+Hero.create({ name: 'Steven Gerrard', default: true })
+Hero.create({ name: 'John Terry' })
+
+User.create({
+  name: 'tony',
+  email: 'tony@54footy.com',
+  password: 'poop009',
+  password_confirmation: 'poop009'
+})
+

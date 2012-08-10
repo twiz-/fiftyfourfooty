@@ -1,9 +1,5 @@
 Fiftyfourfooty::Application.routes.draw do
-   resources :users do
-     member do
-       post :default_hero
-     end
-   end
+   resources :users
    resources :sessions, only: [:new, :create, :destroy]
      
    root to: 'static_pages#home'

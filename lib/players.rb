@@ -17,15 +17,19 @@ class Players
   end
 
   def self.find_hero(name)
-    n = name.downcase.gsub(' ', '-')  # lowercase with spaces replaced by dashes
-    response = get("/football/#{n}?format-json&order-by=newest")
-
-    if response.success?
-      response["response"]["results"]
-      # user.players.create(arg)!  ?????
-    else
-      # if it fails (i.e. name is not found) )get the default football results
+    if name.nil?
       self.find(section: 'football')
+    else
+      n = name.downcase.gsub(' ', '-')  # lowercase with spaces replaced by dashes
+      response = get("/football/#{n}?format-json&order-by=newest")
+
+      if response.success?
+        response["response"]["results"]
+        # user.players.create(arg)!  ?????
+      else
+        # if it fails (i.e. name is not found) )get the default football results
+        self.find(section: 'football')
+      end
     end
   end
 

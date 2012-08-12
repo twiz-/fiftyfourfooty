@@ -18,7 +18,7 @@
       <ul>
         <%= form_tag(default_hero_user_path, :method=>'post') do %>
             <%= label_tag "Name" %>
-            <%= text_field_tag "name", @user.default_hero.name %>
+            <%= text_field_tag "name", @user.default_hero.try(:name) %>
             <%= submit_tag 'Set hero', class: "btn btn-large btn-primary"  %>
         <% end %>
       </ul>

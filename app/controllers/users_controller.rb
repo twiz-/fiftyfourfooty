@@ -62,12 +62,6 @@ class UsersController < ApplicationController
   def default_hero
     @user = User.find(params[:id])
     hero = @user.default_hero
-    if hero.nil?
-      # we don't have a default hero so we need to add one'
-      hero = Hero.new
-      @user.heros << hero
-    end
-    hero.default = true
     hero.name = params[:name]
     hero.save
     redirect_to @user # shows the user again to see any updates

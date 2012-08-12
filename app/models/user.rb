@@ -29,8 +29,14 @@ class User < ActiveRecord::Base
 
   # returns the default hero
   # This assumes that there is only one hero with the default flag set to true
+  # if there is no default hero creates one - NB this newly created hero will not have name!
   def default_hero
-    self.heros.select{|hero| hero.default?}.first
+    hero = self.heros.select{|hero| hero.default?}.first
+    if hero.nil?
+      hero = Hero.new(default: true)
+      self.heros << hero
+    end
+    hero
   end
 
   private

@@ -15,15 +15,21 @@ class Players
       raise response.response    
     end
   end
-  
+
   def self.find_hero(name)
-    response = get("/football/#{name}?format-json&order-by=newest")
-    
-    if response.success?
-      response["results"]
-      # user.players.create(arg)!  ?????
+    if name.nil?
+      self.find(section: 'football')
     else
-      raise response.response
+      n = name.downcase.gsub(' ', '-')  # lowercase with spaces replaced by dashes
+      response = get("/football/#{n}?format-json&order-by=newest")
+
+      if response.success?
+        response["response"]["results"]
+        # user.players.create(arg)!  ?????
+      else
+        # if it fails (i.e. name is not found) )get the default football results
+        self.find(section: 'football')
+      end
     end
   end
 

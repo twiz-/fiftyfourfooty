@@ -32,7 +32,21 @@
 				</span>
 				</li>
 			<% end %>
-    </ul>
+      </ul>
+
+      <ul>
+        <% @youtube_news.each do |item| %>
+            <li>
+              <% you_tube_presenter_for(item) do |presenter| %>
+                  <%= image_tag(presenter.thumbnail_url) %>
+                  <%= presenter.title %>
+                  Published <%= time_ago_in_words(presenter.published_date) %> ago
+                  Updated <%= time_ago_in_words(presenter.updated_date) %> ago
+                  <%= link_to "View", presenter.video_url %>
+              <% end %>
+            </li>
+        <% end %>
+      </ul>
     
 		</section>
 	</aside>

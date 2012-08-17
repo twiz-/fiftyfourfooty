@@ -21,7 +21,7 @@ class Players
       self.find(section: 'football')
     else
       n = name.downcase.gsub(' ', '-')  # lowercase with spaces replaced by dashes
-      response = get("/football/#{n}?format-json&order-by=newest")
+      response = get("/football/#{n}?format-json&order-by=newest", :headers => {"User-Agent" => '54footy'})
 
       if response.success?
         response["response"]["results"]

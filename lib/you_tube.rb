@@ -2,7 +2,7 @@ class YouTube
   include HTTParty
   base_uri 'https://gdata.youtube.com'
 
-  DEFAULT_HERO = 'Lionel Messi'
+  DEFAULT_HERO = 'Lionel Messi soccer, this week'
 
   def initialize()
     # deal with authentication when we need it, this API doesn't need any auth
@@ -15,7 +15,7 @@ class YouTube
     end
     results = []
 
-    query = {"q" => hero.downcase, "orderby" => "published", "max-results" => 10, "v" => 2, "alt" => "json"}
+    query = {"q" => hero.downcase, "orderby" => "relevance", "max-results" => 10, "v" => 2, "alt" => "json"}
 
     response = get("/feeds/api/videos", query: query, :headers => {"User-Agent" => '54footy'})
 

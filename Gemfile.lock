@@ -172,6 +172,7 @@ DEPENDENCIES
   fancybox-rails
   httparty
   jquery-rails (= 2.0.0)
+  nokogiri
   pg
   rack-google_analytics
   rails (= 3.2.6)

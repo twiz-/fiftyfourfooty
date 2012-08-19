@@ -1,28 +1,50 @@
 <% provide(:title, @user.name) %>
 
 <div class="row">
-	<aside class="span4">
-		<section>
-			<h1>
+  <section class="center">
+    	<h1>
 			  <%= gravatar_for @user %><br>
 			  <%= @user.name %> 		
-			</h1>
+			</h1><br>
 
-      <h2><%= @user.name %>&rsquo;s heros</h2>
-      <ul>
-        <% @user.heros.each do |hero| %>
-          <li><%= hero.name %></li>
-        <% end %>
-      </ul>
-      
+      <!-- <h2><%= @user.name %>&rsquo;s heros</h2> -->
       <ul>
         <%= form_tag(default_hero_user_path, :method=>'post') do %>
-            <%= label_tag "Name" %>
-            <%= text_field_tag "name", @user.default_hero.try(:name) %>
+            <%= text_field_tag "name", @user.default_hero.try(:name), :placeholder => "Hero name" %><br>
             <%= submit_tag 'Set hero', class: "btn btn-large btn-primary"  %>
         <% end %>
       </ul>
-
+      <ul>
+        <% @user.heros.each do |hero| %>
+          <span id="hero_name"><li><h1><%= hero.name %></h1></li></span>
+        <% end %>
+      </ul>
+  </section>
+  <hr>  <br>
+	<aside class="span4">
+		<section>
+      <ul class= "box_qv">
+        <% @youtube_news.each do |item| %>
+            <li>
+              <% you_tube_presenter_for(item) do |presenter| %>
+                  <span class="center">
+                   <%= link_to image_tag(presenter.thumbnail_url), presenter.video_url  %>
+                  </span>
+                  <%= presenter.title %>
+                  <span class="timestamp">
+                   Posted <%= time_ago_in_words(presenter.published_date) %> ago
+                  </span> 
+                  
+                  <!-- Updated <%= time_ago_in_words(presenter.updated_date) %> ago -->
+                  <%= link_to "Watch", presenter.video_url %>
+              <% end %>
+            </li>
+        <% end %>
+      </ul>
+		</section>
+	</aside>
+	<aside class="span4">
+		<section>
       <ul class="box_qa">
 			<% @hero_news.each do |item| %>
 				<li>
@@ -32,22 +54,7 @@
 				</span>
 				</li>
 			<% end %>
-      </ul>
-
-      <ul>
-        <% @youtube_news.each do |item| %>
-            <li>
-              <% you_tube_presenter_for(item) do |presenter| %>
-                  <%= image_tag(presenter.thumbnail_url) %>
-                  <%= presenter.title %>
-                  Published <%= time_ago_in_words(presenter.published_date) %> ago
-                  Updated <%= time_ago_in_words(presenter.updated_date) %> ago
-                  <%= link_to "View", presenter.video_url %>
-              <% end %>
-            </li>
-        <% end %>
-      </ul>
-    
+      </ul>    
 		</section>
 	</aside>
 </div>

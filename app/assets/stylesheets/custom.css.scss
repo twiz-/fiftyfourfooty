@@ -235,14 +235,18 @@ ul.box_qv {
 	list-style: none;
 }
 
-
-
-
-
-
 .timestamp {
   padding-top: 8px;
   padding-bottom: 5px;
   color: $grayLight;
 }
 
+.videos {
+	opacity: 0.4;
+	height: 80px;
+	width: 80px;
+	border-radius: 20px;
+	&:hover{
+		opacity: 1.0;
+	};
+}

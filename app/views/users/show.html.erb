@@ -27,8 +27,8 @@
         <% @youtube_news.each do |item| %>
             <li>
               <% you_tube_presenter_for(item) do |presenter| %>
-                  <span class="center">
-                   <%= link_to image_tag(presenter.thumbnail_url), presenter.video_url  %>
+                  <span class="videos center">
+                   <%= link_to image_tag(presenter.thumbnail_url), presenter.video_url, :class=> "fancyboxv"  %>
                   </span>
                   <%= presenter.title %>
                   <span class="timestamp">
@@ -36,7 +36,7 @@
                   </span> 
                   
                   <!-- Updated <%= time_ago_in_words(presenter.updated_date) %> ago -->
-                  <%= link_to "Watch", presenter.video_url %>
+                  <!-- <%= link_to "Watch", presenter.video_url %> -->
               <% end %>
             </li>
         <% end %>
@@ -58,6 +58,26 @@
 		</section>
 	</aside>
 </div>
+
+<script>
+  $(document).ready(function(){
+   $("a.fancyboxv").click(function() {
+    $.fancybox({
+     'transitionIn'   : 'none',
+     'transitionOut'  : 'elastic',
+     'width'          : '680',
+     'height'         : '510',
+     'href'           : this.href.replace(new RegExp("watch\\?v=", "i"), 'v/'), //this is where autoplay would go
+     'type'           : 'iframe',
+     'swf'            : {
+       'wmode'           : 'transparent',
+       'allowfullscreen' : 'true'
+      }
+    }); // fancybox
+    return false;
+   }); // click
+  }); //  ready
+</script>
 
 <script>
 $(document).ready(function(){

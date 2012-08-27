@@ -181,13 +181,7 @@ aside {
 }
 
 
-#homegreen {
-	background-image: -webkit-linear-gradient(top, #5ABF31 0%, #008709 100%);
-	background-image: -moz-linear-gradient(top, #5ABF31 0%, #008709 100%);
-	background-image: -ms-linear-gradient(top, #5ABF31 0%, #008709 100%);
-	background-image: -o-linear-gradient(top, #5ABF31 0%, #008709 100%);
-	background-image: linear-gradient(top, #5ABF31 0%, #008709 100%);
-	border: 1px solid #117D00;
+#homegreen { 
 	color: white;
 	letter-spacing: .75px;
 }
@@ -250,3 +244,54 @@ ul.box_qv {
 		opacity: 1.0;
 	};
 }
+
+/*Homepage layout*/
+
+#home_wrapper {
+	margin: -20px;
+	height: 450px;
+	background: -webkit-gradient(radial, center center, 0, center center, 460, from(#FFF), to(#031C6D));	 
+	background: -webkit-radial-gradient(circle, #FFF, #031C6D); /* Safari 5.1+, Chrome 10+ */
+	background: -moz-radial-gradient(circle, #FFF, #031C6D);   /* Firefox 3.6+ */ 
+	background: -ms-radial-gradient(circle, #FFF, #031C6D); /* IE 10 */
+}
+
+#home_pic {
+padding-top: 20px;
+}
+
+#home_123 {
+	margin-top: 40px;
+}
+
+#home_head {
+	font-size: 2.1em;
+	margin-left: 600px;
+	margin-top: -350px;
+}
+#home_action {
+	margin-left:290px;
+	margin-top: 40px;
+}
+#home_123 {
+	height: 300px;
+	width: 900px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -6,6 +6,9 @@
    <%= javascript_include_tag "application" %>
    <%= csrf_meta_tags %>
    <%= render 'layouts/shim' %>
+   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Montserrat">
+   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Architects+Daughter">
+   
   </head>
   <body>
     <%= render 'layouts/header' %>
@@ -23,15 +26,17 @@
  	        <input type="text">
  	        <%= link_to "Pick your Hero", signup_path, class: "btn btn-large btn-primary" %>
  	      </span>
- 	      <p id="home_head">Flexitarian mcsweeney's bespoke cliche, raw denim 
- 	        biodiesel ethnic<br> fixie. Brunch hella seitan. 
+ 	      <p id="home_head" style="font-family:'Montserrat', serif;color:white;font-size:4.0em;line-height:50px;">
+ 	        Stay close to your heroes. Here's how I use it. 
  	      </p>
       </div>
      </div>
      <div class="container"id="home_123">
-      <span style="float:left;"><img src="http://placehold.it/200x100" /></span>
-      <span style="margin-left:170px;"><img src="http://placehold.it/200x100" /></span>
-      <span style="float:right;"><img src="http://placehold.it/200x100" /></span>
+       <div class="style_123"> <span style="font-size:3.0em;position:absolute;margin-top: 275px;margin-left:-190px;font-family:'Architects Daughter', serif;">1. Set your hero </span><span style="font-size:3.0em;position:absolute;margin-top: 235px;margin-left:410px;font-family:'Architects Daughter', serif;">2. Get their loot</span>
+        <span style="float:left; height:250px;width:250px;"><img src="https://lh6.googleusercontent.com/-j1Y3v4_dgzw/UDr22kLVOnI/AAAAAAAAAB8/vSxVhypw7oQ/s317/Screen%2520Shot%25202012-08-26%2520at%25209.25.26%2520PM.png" /></span>
+        <span style="margin-left:50px;"><img src="https://lh4.googleusercontent.com/-YC4kaSmbfc0/UDr2OQuI4RI/AAAAAAAAABs/QhS_vHhWc3I/s288/Screen%2520Shot%25202012-08-26%2520at%25209.18.55%2520PM.png" /></span>
+        <span style="float:right;"><img src="https://lh5.googleusercontent.com/-xyNx1uAnIhg/UDr2OS1hCsI/AAAAAAAAABo/AwB8h5AAfA0/s281/Screen%2520Shot%25202012-08-26%2520at%25209.15.59%2520PM.png" /></span>
+       </div>
      </div>
    <div class="container">
      <%= render 'layouts/footer' %>

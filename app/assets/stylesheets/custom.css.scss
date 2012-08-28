@@ -237,8 +237,8 @@ ul.box_qv {
 
 .videos {
 	opacity: 0.4;
-	height: 80px;
-	width: 80px;
+	height: 120px;
+	width: 120px;
 	border-radius: 20px;
 	&:hover{
 		opacity: 1.0;
@@ -250,18 +250,19 @@ ul.box_qv {
 #home_wrapper {
 	margin: -20px;
 	height: 450px;
-	background: -webkit-gradient(radial, center center, 0, center center, 460, from(#FFF), to(#031C6D));	 
-	background: -webkit-radial-gradient(circle, #FFF, #031C6D); /* Safari 5.1+, Chrome 10+ */
-	background: -moz-radial-gradient(circle, #FFF, #031C6D);   /* Firefox 3.6+ */ 
-	background: -ms-radial-gradient(circle, #FFF, #031C6D); /* IE 10 */
+	background: -webkit-gradient(radial, center center, 0, center center, 460, from(#000), to(#007510));	 
+	background: -webkit-radial-gradient(circle, #000, #007510); /* Safari 5.1+, Chrome 10+ */
+	background: -moz-radial-gradient(circle, #000, #007510);   /* Firefox 3.6+ */ 
+	background: -ms-radial-gradient(circle, #000, #007510); /* IE 10 */
 }
 
 #home_pic {
 padding-top: 20px;
 }
 
-#home_123 {
+.style_123 {
 	margin-top: 40px;
+	height:300;
 }
 
 #home_head {
@@ -274,7 +275,7 @@ padding-top: 20px;
 	margin-top: 40px;
 }
 #home_123 {
-	height: 300px;
+	height: 400px;
 	width: 900px;
 }
 
